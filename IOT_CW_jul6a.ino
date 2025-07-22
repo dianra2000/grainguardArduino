@@ -23,10 +23,10 @@ const int CLOCK_PIN = 13;
 
 HX711 loadCell;
 
-// --- Global Variables for Calibration ---
+
 static float calibration_factor = -1000;
 
-// --- NTP Client Configuration ---
+
 WiFiUDP ntpUDP;
 NTPClient timeClient(ntpUDP, "pool.ntp.org", 19800, 60000);
 
@@ -34,7 +34,7 @@ NTPClient timeClient(ntpUDP, "pool.ntp.org", 19800, 60000);
 float last_uploaded_weight = -999.0;
 const float WEIGHT_CHANGE_THRESHOLD = 1.0;
 
-// --- Function Prototypes ---
+
 void initializeScale();
 void showInitialReadings();
 void checkUserInput();
@@ -172,7 +172,7 @@ void displayDataAndUpload() {
   Serial.print(" | Factor: ");
   Serial.println(calibration_factor);
 
-  // --- Construct the path without container ID ---
+  
   String containerPath = String("users/") + USER_ID + "/containers/" + CONTAINER_NAME;
 
  
